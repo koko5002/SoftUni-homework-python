@@ -55,7 +55,7 @@ for beggar_index in range(beggars_count):
     result.append(total)
 
 print(result)
-"""
+
 #zad5
 inp = input()
 list1 = [int(x) for x in inp.split(" ")]
@@ -71,4 +71,31 @@ for num in smallest_to_remove:
     result.remove(num)  # removes only one occurrence each
 
 # print
-print(", ".join(str(x) for x in result))
+print(", ".join(str(x) for x in result))"""
+
+#zad7
+presents = input()
+list1=presents.split(" ")
+i=""
+while i!="No Money":
+    i=input()
+    temp=i.split(" ")
+    if "OutOfStock" in temp[0]:
+        for j in range(len(list1)):
+            if temp[1]==list1[j]:
+                list1[j] = "None"
+            else:
+                continue
+    elif "Required" in temp[0]:
+        index = int(temp[2])
+        if 0 <= index < len(list1):
+            list1[index]=temp[1]
+    elif "JustInCase" in temp[0]:
+        list1[-1]=temp[1]
+    if i=="No Money":
+        break
+for k in list1:
+    if k!="None":
+        print(k, end=" ")
+
+
