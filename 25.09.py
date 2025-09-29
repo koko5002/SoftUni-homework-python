@@ -39,7 +39,7 @@ list2=[]
 for i in range(len(list1)):
     if word in list1[i]:
         list2.append(list1[i])
-print(list2)'''
+print(list2)
 
 #zad5
 n=int(input())
@@ -58,4 +58,5 @@ for a in range(len(list1)):
         list2.append(list1[a])
     elif word=="positive" and list1[a]>=0:
         list2.append(list1[a])
-print(list2)
+print(list2)'''
+
