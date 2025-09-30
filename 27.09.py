@@ -71,7 +71,7 @@ for num in smallest_to_remove:
     result.remove(num)  # removes only one occurrence each
 
 # print
-print(", ".join(str(x) for x in result))"""
+print(", ".join(str(x) for x in result))
 
 #zad7
 presents = input()
@@ -98,4 +98,92 @@ for k in list1:
     if k!="None":
         print(k, end=" ")
 
+fires = input().split("#")
+water = int(input())
 
+effort = 0
+total_fire = 0
+cells = []
+
+for fire in fires:
+    fire_type, value = fire.split(" = ")
+    value = int(value)
+
+    # check ranges
+    valid = (
+        (fire_type == "High" and 81 <= value <= 125) or
+        (fire_type == "Medium" and 51 <= value <= 80) or
+        (fire_type == "Low" and 1 <= value <= 50)
+    )
+
+    if valid and water >= value:
+        water -= value
+        effort += value * 0.25
+        total_fire += value
+        cells.append(value)
+
+print("Cells:")
+for cell in cells:
+    print(f" - {cell}")
+print(f"Effort: {effort:.2f}")
+print(f"Total Fire: {total_fire}")
+
+
+#zad9
+collection = input()
+items= collection.split("|")
+budget = float(input())
+newPrices=[]
+profit=0
+total=0
+for i in items:
+    Ttype,price=i.split("->")
+    price=float(price)
+    if price>budget:
+        continue
+    if (Ttype=="Clothes" and price<=50.0)or (Ttype=="Shoes" and price<=35) or (Ttype=="Accessories" and price<=20.5):
+        budget-=price
+        profit+=(price*0.4)
+        newPrices.append(price*1.4)
+total=sum(newPrices)+budget
+for k in newPrices:
+    print(f"{k:.2f}" , end=" ")
+print(f"\nProfit: {profit:.2f}")
+if total>=150:
+    print("Hello, France!")
+else:
+    print("Not enough money.")"""
+
+#zad10
+initialEnergy=100
+coins=100
+events = input().split("|")
+closed=False
+for i in events:
+    type1,number = i.split("-")
+    number=int(number)
+    if type1=="rest":
+        gained = min(number, 100 - initialEnergy)
+        initialEnergy += gained
+        print(f"You gained {gained} energy.")
+        print(f"Current energy: {initialEnergy}.")
+    elif type1=="order":
+        if  initialEnergy>=30:
+            coins+=number
+            initialEnergy -=30
+            print(f"You earned {number} coins.")
+        else:
+            print("You had to rest!")
+            initialEnergy+=50
+    else:
+        if coins>=number:
+            coins-=number
+            print(f"You bought {type1}.")
+        else:
+            print(f"Closed! Cannot afford {type1}.")
+            closed=True
+            break
+if not closed:
+    print("Day completed!")
+    print(f"Coins: {coins}")
+    print(f"Energy: {initialEnergy}")
