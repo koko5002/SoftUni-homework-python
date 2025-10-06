@@ -34,11 +34,40 @@ def calculations(operator,a,b):
     elif operator=="subtract":
         return a-b
 
-print(calculations(operator=input(),a=int(input()),b=int(input())))'''
-from sys import prefix
+print(calculations(operator=input(),a=int(input()),b=int(input())))
 
 #zad4
 inpu = input()
 N=int(input())
 full = lambda input1,n:input1*n
 print(full(inpu,N))
+
+#zad5
+def price_calc(product,number):
+    total_price= 0
+    if product=="coffee":
+        total_price=1.5*number
+    elif product=="coke":
+        total_price=1.4*number
+    elif product=="water":
+        total_price=1.0*number
+    elif product=="snacks":
+        total_price=2*number
+    return total_price
+print(f"{price_calc(product=input(), number=int(input())):.2f}")
+
+#zad6
+def area_rect(width,height):
+    area = width*height
+    return area
+print(area_rect(width=int(input()),height=int(input())))'''
+
+#zad7
+floats = input().split(" ")
+floats = [float(x) for x in floats]
+def rounding(list1):
+    list2=[]
+    for e in list1:
+        list2.append(round(e))
+    return list2
+print(rounding(floats))
