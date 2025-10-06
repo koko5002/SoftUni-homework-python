@@ -58,4 +58,60 @@ def is_even(x):
 list3 = input().split(" ")
 list3=[int(x) for x in list3]
 even=list(filter(is_even,list3))
-print(even)"""
+print(even)
+
+#zad6
+list1=input().split(" ")
+list1=[int(x) for x in list1]
+
+print(sorted(list1))
+
+#zad7
+nums=input().split(" ")
+nums=[int(x) for x in nums]
+print(f"The minimum number is {min(nums)}")
+print(f"The maximum number is {max(nums)}")
+print(f"The sum number is: {sum(nums)}")
+
+#zad8
+nums=input().split(", ")
+nums=[int(x) for x in nums]
+for i in nums:
+    reversed_num = int(str(i)[::-1])#string slicing
+    if i==reversed_num:
+        print("True")
+    else:
+        print("False")
+
+def is_valid(string):
+    invalid1=False
+    invalid2 = False
+    invalid3 = False
+    if 6>len(string) or len(string)>10:#checking length of string
+        print("Password must be between 6 and 10 characters")
+        invalid1=True
+
+    if not string.isalnum():#checking if string consists of only nums and letters
+        print("Password must consist only of letters and digits")
+        invalid2=True
+    digits_count = len(list(filter(str.isdigit,string)))#algorith for finding digits in string, easy
+    if digits_count<2:
+        print("Password must have at least 2 digits")
+        invalid3=True
+    if not(invalid1 or invalid3 or invalid2):
+        print("Password is valid")
+password = input()
+is_valid(password)"""
+
+def perfect(nums):
+    total_divisors = 0
+    for i in range(1,nums):
+        if nums%i==0:
+            total_divisors+=i
+    if nums==total_divisors:
+        print("We have a perfect number!")
+    else:
+        print("It's not so perfect.")
+
+number = int(input())
+perfect(number)
