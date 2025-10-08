@@ -101,8 +101,8 @@ def is_valid(string):
     if not(invalid1 or invalid3 or invalid2):
         print("Password is valid")
 password = input()
-is_valid(password)"""
-
+is_valid(password)
+#zad9
 def perfect(nums):
     total_divisors = 0
     for i in range(1,nums):
@@ -115,3 +115,23 @@ def perfect(nums):
 
 number = int(input())
 perfect(number)
+
+#zad10
+def load(percent):
+    num = percent//10
+    if 0<=num<=9:
+        print(f"{percent}% ["+num*'%'+(10-num)*'.'+"]")
+        print("Still loading...")
+    else:
+        print(f"100% Complete!\n"
+              f"[%%%%%%%%%%]")
+load(int(input()))
+"""
+
+#zad12
+import math
+def factorial_division(int1, int2):
+    fact1=math.factorial(int1)
+    fact2=math.factorial(int2)
+    print(f"{fact1/fact2:.2f}")
+factorial_division(int1=int(input()), int2=int(input()))
